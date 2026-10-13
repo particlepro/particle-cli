@@ -42,6 +42,7 @@ For scripts and CI, set `PARTICLE_API_KEY` instead of logging in.
 | What was said about a topic | `particle search "the future of nuclear power" --since 30d` |
 | Exact words, on one show | `particle search -k "rate cut" -p all-in --recent` |
 | Every line naming someone | `particle mentions "Jensen Huang" -n 50` |
+| Where someone has been a guest | `particle guest appearances "Sam Altman"` |
 | Who a name or link refers to | `particle resolve "Sam Altman" nvidia` |
 | A show and its episodes | `particle podcast lennys` · `particle podcast episodes lennys -n 10` |
 | A transcript | `particle transcript <episode>` · `--format text\|srt` · `--from 10:00 --to 20:00` |
