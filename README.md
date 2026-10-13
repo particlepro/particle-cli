@@ -4,7 +4,7 @@ Podcast intelligence from your terminal. `particle` is the command-line interfac
 
 ```console
 $ particle search "AI agents replacing SaaS" --since 90d
-$ particle mentions "Sam Altman" --role guest
+$ particle mentions "Sam Altman" --since 30d
 $ particle podcast "Lenny's Podcast"
 $ particle transcript lennys --latest --format srt > episode.srt
 ```
