@@ -16,10 +16,10 @@ $ particle transcript lennys --latest --format srt > episode.srt
 brew install particlepro/tap/particle
 
 # Shell installer (macOS, Linux)
-curl -LsSf https://github.com/particlepro/particle-cli/releases/latest/download/particle-cli-installer.sh | sh
+curl -LsSf https://cli.particle.pro/install.sh | sh
 
 # Windows (PowerShell)
-powershell -ExecutionPolicy Bypass -c "irm https://github.com/particlepro/particle-cli/releases/latest/download/particle-cli-installer.ps1 | iex"
+powershell -ExecutionPolicy Bypass -c "irm https://cli.particle.pro/install.ps1 | iex"
 ```
 
 Every release, with archives and SHA-256 checksums for each platform, is on the [releases page](https://github.com/particlepro/particle-cli/releases). Upgrade with `brew upgrade particle`, or by running the installer again.
