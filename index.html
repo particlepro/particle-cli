@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>particle CLI</title>
+<style>
+  :root { color-scheme: light dark; --fg: #1b1b1f; --muted: #5d5d66; --bg: #fbfbfd; --code: #f0f0f4; }
+  @media (prefers-color-scheme: dark) { :root { --fg: #ececf1; --muted: #a1a1aa; --bg: #111114; --code: #1d1d22; } }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.55 system-ui, -apple-system, sans-serif; }
+  main { max-width: 42rem; margin: 0 auto; padding: 3rem 1rem; }
+  h1 { font-size: 1.6rem; margin: 0 0 .25rem; }
+  p { color: var(--muted); }
+  h2 { font-size: 1rem; margin: 2rem 0 .5rem; }
+  pre { background: var(--code); padding: .75rem 1rem; border-radius: 8px; overflow-x: auto; }
+  code { font: 14px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; }
+  a { color: inherit; }
+</style>
+</head>
+<body>
+<main>
+  <h1>particle</h1>
+  <p>Podcast intelligence from your terminal. A command-line interface for the <a href="https://docs.particle.pro">Particle API</a>.</p>
+  <h2>macOS and Linux</h2>
+  <pre><code>curl -LsSf https://cli.particle.pro/install.sh | sh</code></pre>
+  <h2>Homebrew</h2>
+  <pre><code>brew install particlepro/tap/particle</code></pre>
+  <h2>Windows</h2>
+  <pre><code>powershell -ExecutionPolicy Bypass -c "irm https://cli.particle.pro/install.ps1 | iex"</code></pre>
+  <h2>Then</h2>
+  <pre><code>particle auth login   # key from https://platform.particle.pro/tokens
+particle              # common commands and examples</code></pre>
+  <p><a href="https://github.com/particlepro/particle-cli-releases/releases">All releases and checksums</a></p>
+</main>
+</body>
+</html>
