@@ -2,13 +2,13 @@
 # Install the particle CLI: curl -LsSf https://cli.particle.pro/install.sh | sh
 #
 # Downloads and runs the installer from the newest release at
-# https://github.com/particlepro/particle-cli-releases/releases/latest
+# https://github.com/particlepro/particle-cli/releases/latest
 # Options are environment variables, for example:
 #   PARTICLE_CLI_INSTALL_DIR=~/bin           install somewhere else
 #   PARTICLE_CLI_NO_MODIFY_PATH=1            don't edit shell profiles
 set -eu
 
-url="https://github.com/particlepro/particle-cli-releases/releases/latest/download/particle-cli-installer.sh"
+url="https://github.com/particlepro/particle-cli/releases/latest/download/particle-cli-installer.sh"
 tmp="$(mktemp)"
 trap 'rm -f "$tmp"' EXIT INT TERM
 
