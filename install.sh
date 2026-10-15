@@ -23,6 +23,16 @@ else
   exit 1
 fi
 
+# Run again, upgrade in place: the last install's receipt says where it went.
+receipt="${XDG_CONFIG_HOME:-$HOME/.config}/particle-cli/particle-cli-receipt.json"
+if [ -z "${PARTICLE_CLI_INSTALL_DIR:-}" ] && [ -f "$receipt" ]; then
+  prefix="$(sed -n 's/.*"install_prefix":"\([^"]*\)".*/\1/p' "$receipt")"
+  if [ -n "$prefix" ] && [ -d "$prefix" ]; then
+    PARTICLE_CLI_INSTALL_DIR="$prefix"
+    export PARTICLE_CLI_INSTALL_DIR
+  fi
+fi
+
 # Where the binary goes: dist's installer honors PARTICLE_CLI_INSTALL_DIR,
 # else the first of $XDG_BIN_HOME, $XDG_DATA_HOME/../bin, ~/.local/bin.
 if [ -n "${PARTICLE_CLI_INSTALL_DIR:-}" ]; then
