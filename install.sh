@@ -11,7 +11,8 @@ set -eu
 
 url="https://github.com/particlepro/particle-cli/releases/latest/download/particle-cli-installer.sh"
 tmp="$(mktemp)"
-trap 'rm -f "$tmp"' EXIT INT TERM
+shim=""
+trap 'rm -f "$tmp"; [ -z "$shim" ] || rm -rf "$shim"' EXIT INT TERM
 
 if command -v curl >/dev/null 2>&1; then
   curl --proto '=https' --tlsv1.2 -LsSf "$url" -o "$tmp"
@@ -37,6 +38,17 @@ bin="$dir/particle"
 before=""
 if [ -x "$bin" ]; then
   before="$("$bin" --version 2>/dev/null | head -n 1 | awk '{print $2}')" || before=""
+fi
+
+# The installer checks the download's checksum with sha256sum, and skips the
+# check without it (macOS before 14, or a PATH without /sbin). shasum, on
+# every Mac, computes the same thing.
+if ! command -v sha256sum >/dev/null 2>&1 && command -v shasum >/dev/null 2>&1; then
+  shim="$(mktemp -d)"
+  printf '#!/bin/sh\nexec shasum -a 256 "$@"\n' > "$shim/sha256sum"
+  chmod +x "$shim/sha256sum"
+  PATH="$shim:$PATH"
+  export PATH
 fi
 
 sh "$tmp" "$@"
